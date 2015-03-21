@@ -8,6 +8,6 @@ before_install:
 before_script: export PATH=$PATH:$PWD/packer
 script:
 - bundle exec thor packer:validate
-- bundle exec thod packer:build
+- bundle exec thor packer:build
 env:
   secure: KOVF9EiHHWdCZEidogXZNlT7U//NNzphZDLqbN8cb3bDXpSYYUmWHQRYPKLeQO4X53uEJ43WERhLMqYF2lv6KQVP81bT5d3PvmS7SP/v4U9bJX0ANSUgd2+jAbGwrMrj603Qidwy0MM0DUpNjP0IKv+G1i5OKcFClsWBDwF7IgA=
