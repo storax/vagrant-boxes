@@ -1,9 +1,13 @@
 {
   "variables": {
     "PACKER_OS_FLAVOUR": "ubuntu",
-    "PACKER_BOX_NAME": "ubuntu-14.04.2-desktop-amd64",
+    "PACKER_BOX_NAME": "ubuntu-14.04.2-server-amd64",
     "PACKER_ATLAS_TOKEN": "{{env `PACKER_ATLAS_TOKEN`}}",
     "PACKER_ATLAS_VERSION": ""
+  },
+  "push": {
+    "name": "storax/{{ user `PACKER_BOX_NAME` }}-buildconfig",
+    "token": "{{user 'PACKER_ATLAS_TOKEN' }}"
   },
   "builders": [
     {
@@ -80,6 +84,14 @@
         "type": "vagrant",
         "compression_level": "9",
         "output": "../builds/{{.Provider}}/{{ user `PACKER_BOX_NAME` }}_{{.Provider}}.box"
+      },
+      {
+        "type": "atlas",
+        "artifact": "storax/{{ user `PACKER_BOX_NAME` }}",
+        "artifact_type": "virtualbox",
+        "metadata": {
+          "created_at": "{{timestamp}}"
+        }
       }
     ]
   ]
