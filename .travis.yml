@@ -1,10 +1,13 @@
-sudo: false
 language: ruby
 rvm:
 - 2.2.0
-before_install: wget --no-check-certificate https://dl.bintray.com/mitchellh/packer/packer_0.7.5_linux_amd64.zip
-  && unzip -d packer packer_0.7.5_linux_amd64.zip
+before_install:
+- wget --no-check-certificate https://dl.bintray.com/mitchellh/packer/packer_0.7.5_linux_amd64.zip && unzip -d packer packer_0.7.5_linux_amd64.zip
+- % sudo sh -c "echo 'deb http://download.virtualbox.org/virtualbox/debian '$(lsb_release -cs)' contrib non-free' > /etc/apt/sources.list.d/virtualbox.list" && wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add - && sudo apt-get update && sudo apt-get install virtualbox-4.3 dkms
+
 before_script: export PATH=$PATH:$PWD/packer
-script: bundle exec thor packer:validate
+script:
+- bundle exec thor packer:validate
+- bundle exec thod packer:build
 env:
   secure: KOVF9EiHHWdCZEidogXZNlT7U//NNzphZDLqbN8cb3bDXpSYYUmWHQRYPKLeQO4X53uEJ43WERhLMqYF2lv6KQVP81bT5d3PvmS7SP/v4U9bJX0ANSUgd2+jAbGwrMrj603Qidwy0MM0DUpNjP0IKv+G1i5OKcFClsWBDwF7IgA=
