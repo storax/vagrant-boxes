@@ -7,7 +7,6 @@
   },
   "push": {
     "name": "storax/{{ user `PACKER_BOX_NAME` }}-buildconfig",
-    "token": "{{user `PACKER_ATLAS_TOKEN` }}",
     "include": [
       "{{ user `PACKER_BOX_NAME` }}.json",
       "scripts/*",
