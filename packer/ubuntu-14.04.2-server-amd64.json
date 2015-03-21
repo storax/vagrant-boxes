@@ -92,6 +92,7 @@
       },
       {
         "type": "atlas",
+	"token": "{{ user `PACKER_ATLAS_TOKEN` }}",
         "artifact": "storax/{{ user `PACKER_BOX_NAME` }}",
         "artifact_type": "virtualbox",
         "metadata": {
