@@ -2,8 +2,7 @@
   "variables": {
     "PACKER_OS_FLAVOUR": "ubuntu",
     "PACKER_BOX_NAME": "ubuntu-14.04.2-server-amd64",
-    "PACKER_ATLAS_TOKEN": "{{env `PACKER_ATLAS_TOKEN`}}",
-    "PACKER_ATLAS_VERSION": ""
+    "PACKER_ATLAS_TOKEN": "{{env `PACKER_ATLAS_TOKEN`}}"
   },
   "push": {
     "name": "storax/{{ user `PACKER_BOX_NAME` }}-buildconfig",

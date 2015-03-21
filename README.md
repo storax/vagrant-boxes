@@ -30,11 +30,7 @@ The following env vars must be present:
 
 run the following command to build/upload individual boxes:
 ```
-$ bundle exec thor packer:build \
-  --atlas_version=0.1.0 \                 # version tag
-  --os=ubuntu \                           # os distribution (debian/ubuntu)
-  --os_version=14.04.2-server \                   # os version
-  --providers=virtualbox # providers to build
+$ bundle exec thor packer:build
 ```
 
 run the following command to delete temporary artifacts

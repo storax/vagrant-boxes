@@ -31,22 +31,15 @@ class Packer < Thor
   end
 
   desc 'build', 'Execute the packer builder'
-  option :atlas_version, :banner => '<atlas version>'
   option :os, :banner => '<os>'
   option :os_version, :banner => '<os version>'
-  option :providers, :banner => '<providers>'
 
   def build
     Dir.chdir './packer' do
-      templates = Dir.glob("#{options[:os]}-#{options[:os_version]}-amd64.json")
-      templates.each do |template|
-        providers = options[:providers].split(",")
-        providers.each do |provider|
-          system "packer build --only=#{provider}-iso -var 'PACKER_ATLAS_VERSION=#{options[:atlas_version]}' #{template}"
-          system "shasum -a 256 ../builds/#{provider}/#{options[:os]}-#{options[:os_version]}-amd64_#{provider}.box > ../builds/#{provider}/#{options[:os]}-#{options[:os_version]}-amd64_#{provider}_SHA256SUM"
-          system "shasum -a 512 ../builds/#{provider}/#{options[:os]}-#{options[:os_version]}-amd64_#{provider}.box > ../builds/#{provider}/#{options[:os]}-#{options[:os_version]}-amd64_#{provider}_SHA512SUM"
-        end
-      end
+      template = "ubuntu-14.04.2-server-amd64.json"
+      system "packer build --only=virtualbox-iso #{template}"
+      system "shasum -a 256 ../builds/virtualbox/#{options[:os]}-#{options[:os_version]}-amd64_virtualbox.box > ../builds/virtualbox/#{options[:os]}-#{options[:os_version]}-amd64_virtualbox_SHA256SUM"
+      system "shasum -a 512 ../builds/virtualbox/#{options[:os]}-#{options[:os_version]}-amd64_virtualbox.box > ../builds/virtualbox/#{options[:os]}-#{options[:os_version]}-amd64_virtualbox_SHA512SUM"
     end
   end
 
