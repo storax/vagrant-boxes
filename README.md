@@ -37,11 +37,6 @@ $ bundle exec thor packer:build \
   --providers=virtualbox # providers to build
 ```
 
-run the following command to build/upload ALL boxes sequentially:
-```
-$ ./build_boxes.sh
-```
-
 run the following command to delete temporary artifacts
 ```
 $ bundle exec thor packer:clean cache
