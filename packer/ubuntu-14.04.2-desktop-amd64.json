@@ -66,8 +66,10 @@
         "scripts/sudoers.sh",
         "scripts/vagrant.sh",
         "scripts/vmtools.sh",
+	"scripts/desktop.sh",
+	"scripts/additional_software.sh",
         "scripts/cleanup.sh",
-        "scripts/common/minimize.sh"
+        "scripts/minimize.sh"
       ],
       "type": "shell"
     }
