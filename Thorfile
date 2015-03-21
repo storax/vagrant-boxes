@@ -40,15 +40,12 @@ class Packer < Thor
     Dir.chdir './packer' do
       templates = Dir.glob("#{options[:os]}-#{options[:os_version]}-amd64.json")
       templates.each do |template|
-        name = template.chomp('.json').split('-')
-        system "curl -s \"https://atlas.hashicorp.com/api/v1/box/storax/#{options[:os]}-#{options[:os_version]}-amd64/versions\" -X POST -d version[version]=\"#{options[:atlas_version]}\" -d version[description]=\"### tools\n* VirtualBox Guest Additions 4.3.24\n\r### source\n[packer templates on github](https://github.com/storax/vagrant-boxes)\" -d access_token=\"$PACKER_ATLAS_TOKEN\""
         providers = options[:providers].split(",")
         providers.each do |provider|
           system "packer build --only=#{provider}-iso -var 'PACKER_ATLAS_VERSION=#{options[:atlas_version]}' #{template}"
           system "shasum -a 256 ../builds/#{provider}/#{options[:os]}-#{options[:os_version]}-amd64_#{provider}.box > ../builds/#{provider}/#{options[:os]}-#{options[:os_version]}-amd64_#{provider}_SHA256SUM"
           system "shasum -a 512 ../builds/#{provider}/#{options[:os]}-#{options[:os_version]}-amd64_#{provider}.box > ../builds/#{provider}/#{options[:os]}-#{options[:os_version]}-amd64_#{provider}_SHA512SUM"
         end
-        system "curl -s \"https://atlas.hashicorp.com/api/v1/box/storax/#{options[:os]}-#{options[:os_version]}-amd64/version/#{options[:atlas_version]}/release\" -X PUT -d access_token=\"$PACKER_ATLAS_TOKEN\""
       end
     end
   end
