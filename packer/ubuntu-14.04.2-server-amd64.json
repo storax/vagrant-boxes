@@ -89,13 +89,10 @@
         "output": "../builds/{{.Provider}}/{{ user `PACKER_BOX_NAME` }}_{{.Provider}}.box"
       },
       {
-        "type": "atlas",
-	"token": "{{ user `PACKER_ATLAS_TOKEN` }}",
-        "artifact": "storax/{{ user `PACKER_BOX_NAME` }}",
-        "artifact_type": "virtualbox",
-        "metadata": {
-          "created_at": "{{timestamp}}"
-        }
+        "type": "vagrant-cloud",
+        "access_token": "{{ user `PACKER_ATLAS_TOKEN` }}",
+        "box_tag": "storax/{{ user `PACKER_BOX_NAME` }}",
+        "version": "0.1.0"
       }
     ]
   ]
