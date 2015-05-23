@@ -27,6 +27,7 @@ declare -a pkgs=(
     phonon-backend-vlc
     python-pip
     python2.7-dev
+    python3.4-dev
     qtmobility-dev
     wget
     zlib1g-dev
