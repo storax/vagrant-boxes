@@ -28,6 +28,8 @@ Install the tools above.
 The following env vars must be present:
 * `PACKER_ATLAS_TOKEN` Atlas API Token
 
+You can get it from your profile page.
+
 run the following command to build/upload individual boxes:
 ```
 $ bundle exec thor packer:build --os=ubunut --os_version=14.04.2-server
@@ -113,6 +115,12 @@ thor packer:build     # Execute the packer builder
 thor packer:clean     # Remove temporary artifacts
 thor packer:validate  # Validate all the packer templates
 ```
+
+Updating/Creating a new box
+===========================
+
+Make sure to update the version of the box for the vagrant-cloud.
+Add a new json file (Copy one of the old ones). Update the box name, iso_checksum, iso_url and version.
 
 License and Author
 ------------------
