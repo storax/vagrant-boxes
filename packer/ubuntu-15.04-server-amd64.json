@@ -92,7 +92,7 @@
         "type": "vagrant-cloud",
         "access_token": "{{ user `PACKER_ATLAS_TOKEN` }}",
         "box_tag": "storax/{{ user `PACKER_BOX_NAME` }}",
-        "version": "0.1.0"
+        "version": "0.1.1"
       }
     ]
   ]
