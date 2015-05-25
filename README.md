@@ -30,7 +30,12 @@ The following env vars must be present:
 
 run the following command to build/upload individual boxes:
 ```
-$ bundle exec thor packer:build
+$ bundle exec thor packer:build --os=ubunut --os_version=14.04.2-server
+```
+
+run the following command to build/upload all boxes:
+```
+$ ./build_boxes.sh
 ```
 
 run the following command to delete temporary artifacts

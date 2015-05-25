@@ -37,6 +37,7 @@ class Packer < Thor
   def build
     Dir.chdir './packer' do
       templates = Dir.glob("#{options[:os]}-#{options[:os_version]}-amd64.json")
+      fail templates
       templates.each do |template|
         unless system "packer build --only=virtualbox-iso #{template}"
           fail 'Build failed!'
