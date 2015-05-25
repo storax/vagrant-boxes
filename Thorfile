@@ -36,15 +36,17 @@ class Packer < Thor
 
   def build
     Dir.chdir './packer' do
-      template = "ubuntu-14.04.2-server-amd64.json"
-      unless system "packer build --only=virtualbox-iso #{template}"
-         fail 'Build failed!'
-      end
-      unless system "shasum -a 256 ../builds/virtualbox/#{options[:os]}-#{options[:os_version]}-amd64_virtualbox.box > ../builds/virtualbox/#{options[:os]}-#{options[:os_version]}-amd64_virtualbox_SHA256SUM"
-         fail 'SHA256 failed!'
-      end
-      unless system "shasum -a 512 ../builds/virtualbox/#{options[:os]}-#{options[:os_version]}-amd64_virtualbox.box > ../builds/virtualbox/#{options[:os]}-#{options[:os_version]}-amd64_virtualbox_SHA512SUM"
-         fail 'SHA512 failed!'
+      templates = Dir.glob("#{options[:os]}-#{options[:os_version]}-amd64.json")
+      templates.each do |template|
+        unless system "packer build --only=virtualbox-iso #{template}"
+          fail 'Build failed!'
+        end
+        unless system "shasum -a 256 ../builds/virtualbox/#{options[:os]}-#{options[:os_version]}-amd64_virtualbox.box > ../builds/virtualbox/#{options[:os]}-#{options[:os_version]}-amd64_virtualbox_SHA256SUM"
+          fail 'SHA256 failed!'
+        end
+        unless system "shasum -a 512 ../builds/virtualbox/#{options[:os]}-#{options[:os_version]}-amd64_virtualbox.box > ../builds/virtualbox/#{options[:os]}-#{options[:os_version]}-amd64_virtualbox_SHA512SUM"
+          fail 'SHA512 failed!'
+        end
       end
     end
   end
