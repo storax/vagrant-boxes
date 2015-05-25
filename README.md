@@ -53,7 +53,23 @@ Boxes
 
 #### Ubuntu 14.04.2 Desktop x86_64
 
-* VirtualBox Guest Additions 4.3.24
+* VirtualBox Guest Additions 4.3.28
+* ubuntu-desktop --no-install-recommends
+* build-essential
+* cmake
+* curl
+* gcc
+* libbz2-dev
+* libphonon-dev
+* libqt4-dev
+* libreadline-dev
+* libsqlite3-dev
+* libssl-dev
+* libxml2-dev
+* libxslt1-dev
+* llvm
+* make
+* wget
 
 | Provider      | URL                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -61,7 +77,23 @@ Boxes
 
 #### Ubuntu 15.04 Desktop x86_64
 
-* VirtualBox Guest Additions 4.3.24
+* VirtualBox Guest Additions 4.3.28
+* ubuntu-desktop --no-install-recommends
+* build-essential
+* cmake
+* curl
+* gcc
+* libbz2-dev
+* libphonon-dev
+* libqt4-dev
+* libreadline-dev
+* libsqlite3-dev
+* libssl-dev
+* libxml2-dev
+* libxslt1-dev
+* llvm
+* make
+* wget
 
 | Provider      | URL                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -81,3 +113,28 @@ thor packer:build     # Execute the packer builder
 thor packer:clean     # Remove temporary artifacts
 thor packer:validate  # Validate all the packer templates
 ```
+
+License and Author
+------------------
+
+The original author and license is mentioned below.
+I (David Zuber <zuber.david@gmx.de>) created new packer json files, install different software and adjusted the
+build scripts/thorfile. So the concept and workflow is still the same but it builds different images.
+Thanks to Achim Rosenhagen for this great setup!
+
+Original license:
+
+- Author:: Achim Rosenhagen (<a.rosenhagen@ffuenf.de>)
+- Copyright:: 2015, ffuenf
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
