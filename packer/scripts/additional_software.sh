@@ -1,6 +1,5 @@
 #!/bin/bash -eux
 
-sudo apt-get install  -y --no-install-recommends ubuntu-desktop
 sudo apt-get upgrade -y
 
 declare -a pkgs=(
