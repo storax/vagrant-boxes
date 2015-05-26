@@ -74,7 +74,7 @@
         "scripts/vagrant.sh",
         "scripts/vmtools.sh",
 	"scripts/desktop.sh",
-	"scripts/systemd.sh"
+	"scripts/systemd.sh",
 	"scripts/additional_software.sh",
         "scripts/cleanup.sh",
         "scripts/minimize.sh"
