@@ -1,6 +1,7 @@
 #!/bin/bash -eux
 
 sudo apt-get upgrade -y
+sudo apt-get remove software-center
 
 declare -a pkgs=(
     build-essential
@@ -17,6 +18,7 @@ declare -a pkgs=(
     libxslt1-dev
     llvm
     make
+    software-center
     wget
 )
 
