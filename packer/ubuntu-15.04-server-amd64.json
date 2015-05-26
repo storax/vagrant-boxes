@@ -1,7 +1,7 @@
 {
   "variables": {
     "PACKER_OS_FLAVOUR": "ubuntu",
-    "PACKER_BOX_NAME": "ubuntu-15.04-desktop-amd64",
+    "PACKER_BOX_NAME": "ubuntu-15.04-server-amd64",
     "PACKER_ATLAS_TOKEN": "{{env `PACKER_ATLAS_TOKEN`}}"
   },
   "push": {
@@ -46,7 +46,7 @@
       "guest_os_type": "Ubuntu_64",
       "hard_drive_interface": "sata",
       "http_directory": "http",
-      "iso_checksum": "a3cfac5c32b217db2cab43f261dcbe2cc546d99ca23e113312fedb78733aef6b",
+      "iso_checksum": "6501c8545374665823384bbb6235f865108f56d8a30bbf69dd18df73c14ccb84",
       "iso_checksum_type": "sha256",
       "iso_url": "http://releases.ubuntu.com/15.04/{{ user `PACKER_BOX_NAME` }}.iso",
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
