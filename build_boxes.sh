@@ -7,4 +7,4 @@ bundle exec thor packer:build \
 
 bundle exec thor packer:build \
   --os=ubuntu \
-  --os_version=15.04-desktop \
+  --os_version=15.04-server \
