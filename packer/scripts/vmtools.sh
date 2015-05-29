@@ -8,3 +8,5 @@ umount /tmp/vbox
 rmdir /tmp/vbox
 rm /home/vagrant/*.iso
 ln -s /opt/VBoxGuestAdditions-*/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions
+
+sudo apt-get install -y virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
