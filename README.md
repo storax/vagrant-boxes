@@ -102,12 +102,6 @@ Boxes
 | Atlas         | [storax/ubuntu-15.04-server-amd64](https://atlas.hashicorp.com/storax/ubuntu-15.04-server-amd64)                                                                                                                                                                                                                                                                                                                    |
 
 
-Bugs
-====
-
-The xserver-xorg has to be reinstalled in order to work. I don't know why really.
-The guest additions are not installed as well.
-
 Testing
 =======
 
