@@ -1,16 +1,14 @@
 {
   "variables": {
+    "atlas_username": "{{env `ATLAS_USERNAME`}}",
+    "atlas_name": "{{env `ATLAS_NAME`}}"
     "PACKER_OS_FLAVOUR": "ubuntu",
     "PACKER_BOX_NAME": "ubuntu-14.04.2-server-amd64",
     "PACKER_ATLAS_TOKEN": "{{env `PACKER_ATLAS_TOKEN`}}"
   },
   "push": {
     "name": "storax/{{ user `PACKER_BOX_NAME` }}-buildconfig",
-    "include": [
-      "{{ user `PACKER_BOX_NAME` }}.json",
-      "scripts/*",
-      "http/*"
-    ]
+    "vcs": true
   },
   "builders": [
     {
@@ -86,13 +84,17 @@
       {
         "type": "vagrant",
         "compression_level": "9",
-        "output": "../builds/{{.Provider}}/{{ user `PACKER_BOX_NAME` }}_{{.Provider}}.box"
+	"keep_input_artifact": false
       },
       {
-        "type": "vagrant-cloud",
-        "access_token": "{{ user `PACKER_ATLAS_TOKEN` }}",
-        "box_tag": "storax/{{ user `PACKER_BOX_NAME` }}",
-        "version": "0.1.0"
+	"type": "atlas",
+	"only": ["virtualbox-iso"],
+        "artifact": "{{user `atlas_username`}}/{{user `atlas_name`}}",
+        "artifact_type": "vagrant.box",
+        "metadata": {
+            "provider": "virtualbox",
+            "version": "0.0.1"
+        }
       }
     ]
   ]
